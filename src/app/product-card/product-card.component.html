@@ -1,0 +1,10 @@
+<div class="card my-3">
+    <img class="card-img-top" [src]="product.image" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">{{product.description}}</p>
+      <p class="card-text">price: {{product.price}}$</p>
+      <a  class="btn btn-primary" (click)="addToCart(product.id)">Add to Cart</a>
+      <a  class="btn btn-danger">Add to favourite</a>
+    </div>
+</div> 

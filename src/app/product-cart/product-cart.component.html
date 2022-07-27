@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="card my-3 col-4" *ngFor="let product of cartProducts">
+      <img class="card-img-top" [src]="product.image" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{product.title}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <p class="card-text">price: {{product.price}}$</p>
+        <a  class="btn btn-danger text-center" (click)="removeFromCart(product.id)">Remove From Cart </a>
+      </div>
+  </div>
+  </div>
+</div> 
