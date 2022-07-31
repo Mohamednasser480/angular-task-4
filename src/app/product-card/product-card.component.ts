@@ -1,5 +1,7 @@
 import { Component, OnInit , Input} from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductsService } from '../products.service';
+
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -11,7 +13,7 @@ export class ProductCardComponent implements OnInit {
   addToCart(productId:number):void{
     this._ProductsService.addToCart(productId);
   }
-  constructor(private _ProductsService:ProductsService){
+  constructor(private _ProductsService:ProductsService , private _Router:Router){
   }
   ngOnInit(): void {
     this.product.description = this.product.description.substr(0,150);

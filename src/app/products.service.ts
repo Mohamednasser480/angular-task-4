@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -248,14 +249,21 @@ export class ProductsService {
     }
     ]
     cartProducts:BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  constructor(private _HttpClient:HttpClient){}
   addToCart(productId:number):void{
-     let index = this.products.findIndex( product => product.id === productId); 
-    this.cartProducts.next([...this.cartProducts.value , this.products[index]]); 
+     let index = this.products.findIndex( product => product.id === productId);
+    this.cartProducts.next([...this.cartProducts.value , this.products[index]]);
     console.log(this.cartProducts.value);
   }
+
   removeFromCart(productId:number):void{
-    let products = this.cartProducts.value.filter( product => product.id !== productId); 
-    this.cartProducts.next(products); 
+    let products = this.cartProducts.value.filter( product => product.id !== productId);
+    this.cartProducts.next(products);
  }
-  constructor() { }
+ getUsers(pageNum:number):Observable<any>{
+  let data;
+    data = this._HttpClient.get(`https://www.mecallapi.com/api/users?page=${pageNum}&per_page=5`);
+    // data.subscribe((res )=> console.log(res));
+    return data;
+ }
 }

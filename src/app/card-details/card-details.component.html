@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-3">{{itemDetails.title}}</h1>
+       <div class="d-flex justify-content-between">
+           <img [src]="itemDetails.image" class="col-4" alt="">
+           <p class="lead col-6" >{{itemDetails.description}}</p>
+       </div>
+        <hr class="my-2">
+        <p>{{itemDetails.price}}$</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" role="button"(click)="addToCart(itemDetails.id)">Add To Cart</a>
+        </p>
+    </div>
+</div>
