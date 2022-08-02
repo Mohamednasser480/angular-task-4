@@ -11,6 +11,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { UsersComponent } from './users/users.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddProductComponent } from './add-product/add-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,14 @@ import { HttpClientModule } from '@angular/common/http';
     ProductCartComponent,
     NavbarComponent,
     CardDetailsComponent,
-    UsersComponent
+    UsersComponent,
+    AddProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule
+    AppRoutingModule,HttpClientModule,ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

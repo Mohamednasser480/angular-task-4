@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <form [formGroup]="product" (ngSubmit)="submitLoginForm(product) ">
+        <div  class="py-2">
+            <label for="title">title:</label>
+            <input type="text" name="title" class="form-control" formControlName = "title">
+            <div *ngIf="product.get('title')?.errors!=null && product.get('title')?.touched " c class=" mt-2 alert alert-danger mb-0" >
+                <span *ngIf="product.get('title')?.errors?.['required']" >title is required</span>
+            </div>
+        </div>
+    
+        <div  class="py-2">
+            <label for="description">description:</label>
+            <input type="text" name="description" class="form-control" formControlName = "description">
+            <div *ngIf="product.get('description')?.errors!=null && product.get('description')?.touched " c class=" mt-2 alert alert-danger mb-0" >
+                <span *ngIf="product.get('description')?.errors?.['required']" >description is required</span>
+            </div>
+        </div>
+        
+        <div  class="py-2">
+            <label for="price">price:</label>
+            <input type="text" name="price" class="form-control" formControlName = "price">
+            <div *ngIf="product.get('price')?.errors!=null && product.get('price')?.touched " c class=" mt-2 alert alert-danger mb-0" >
+                <span *ngIf="product.get('price')?.errors?.['required']" >price is required</span>
+            </div>
+        </div>
+    
+        <div  class="py-2">
+            <label for="imagesURL">imagesURL:</label>
+            <input type="text" name="imagesURL" class="form-control" formControlName = "imagesURL">
+            <div *ngIf="product.get('imagesURL')?.errors!=null && product.get('imagesURL')?.touched " c class=" mt-2 alert alert-danger mb-0" >
+                <span *ngIf="product.get('imagesURL')?.errors?.['required']" >imagesURL is required</span>
+            </div>
+        </div>
+       <button class="btn btn-info" [disabled]="product.invalid"> Register</button>
+       <div  class="alert my-2 alert-danger" *ngIf=" error !=''">{{error}}</div>
+    
+    </form>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+<form #form="ngForm" (ngSubmit)="login(form.value)">
+  <div class="m-5">
+    <label for="" class="me-2">username</label>
+    <input
+      type="text"
+      name="username"
+      [(ngModel)]="userlogin.username"
+      #userRef="ngModel"
+      required
+      minlength="5"
+    />
+    <p *ngIf="userRef.errors?.['minlength']" style="color: red">length is less than 5</p>
+  </div>
+
+  <div class="m-5">
+    <label class="me-2" for="">password</label>
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="userlogin.password"
+      required
+    />
+  </div>
+
+  <input class="m-5"
+    routerLink="/products"
+    type="submit"
+    value="login"
+    [disabled]="form.invalid"
+  />
+</form>
+</div>
+{{ form.value | json }}
